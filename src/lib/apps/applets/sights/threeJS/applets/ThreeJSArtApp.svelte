@@ -17,8 +17,6 @@
     onMount(() => {
         animations = Object.values(modules).map(mod => mod.default ?? mod).filter(mod => !mod.metadata.hidden);
 
-        $inspect(animations)
-
         if (animations.length > 0) CurrentAnimation = animations[0];
     });
 
