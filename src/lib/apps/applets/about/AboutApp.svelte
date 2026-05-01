@@ -16,25 +16,29 @@
 
 </script>
 
-<main class="app-container flex grow flex-col">
-    <div>
-        <p>head in the clouds</p>
-    </div>
-    <div>
+<main class="app-container items-center justify-center flex grow flex-col">
+    <div class='icon-set flex'>
         {#each aboutLinks as { src, icon } (src)}
             <a href="{src}" rel="noopener" class="about-icon" target="_blank">
                 <Icon data={icon} scale={1.75}/>
             </a>
         {/each}
     </div>
+    <div>
+        <p>head in the clouds</p>
+    </div>
 </main>
 
 <style>
     .app-container {
-        text-align: center;
-        position: relative;
-        top: 20%;
         max-height: inherit;
+        min-height: inherit;
+
+        text-align: center;
+    }
+
+    .icon-set {
+        gap: 28px;
     }
 
     .about-icon {
@@ -45,10 +49,6 @@
 
     .about-icon:hover, .about-icon:active, .about-icon:visited {
         color: black;
-    }
-
-    h1 {
-        font-size: 2.5rem;
     }
 
     p {
