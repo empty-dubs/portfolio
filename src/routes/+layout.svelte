@@ -2,7 +2,8 @@
 
 	import './layout.css';
 	import '../app.css';
-	import favicon from '$lib/assets/favicon.svg';
+
+	import headerImage from '$lib/assets/chrysanthedad2.png'
 
 	import { setWindowState } from '$lib/components/WindowState.svelte';
 
@@ -13,7 +14,7 @@
 </script>
 
 <svelte:head>
-	<link rel="icon" href={favicon} />
+	<link rel="icon" href={headerImage} />
 </svelte:head>
 
 {@render children()}
