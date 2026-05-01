@@ -2,7 +2,7 @@
 //TODO: see if I can make this a svelte component instead,
 // simiar to what I have in $lib/apps/d3/components/Canvas.svelte
 
-import { Clock, PerspectiveCamera, Scene, WebGLRenderer } from "three";
+import { PerspectiveCamera, Scene, Timer, WebGLRenderer } from "three";
 import { OrbitControls } from 'three/addons/controls/OrbitControls.js';
 
 export default class CanvasManager {
@@ -98,8 +98,10 @@ export default class CanvasManager {
 
         for (const mesh of this.meshObjects) this.scene?.add(mesh);
 
-        // create a clock element
-        this.clock = new Clock();
+        // create a timer element
+        this.timer = new Timer();
+
+        this.timer.connect(document);
 
         // run animation
         this.renderer.setAnimationLoop(() => {
@@ -135,8 +137,10 @@ export default class CanvasManager {
     }
 
     tick() {
+        this.timer.update();
+
         // get timestep (should be equivalent to 0.016, representing 16ms)
-        const delta = this.clock?.getDelta();
+        const delta = this.timer.getDelta();
 
         // run tick method on all objects
         for (const mesh of this.meshObjects) this.tickAll(mesh, delta);
