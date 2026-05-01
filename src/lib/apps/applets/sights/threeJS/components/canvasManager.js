@@ -1,6 +1,4 @@
 //TODO: convert this to typescript file
-//TODO: see if I can make this a svelte component instead,
-// simiar to what I have in $lib/apps/d3/components/Canvas.svelte
 
 import { PerspectiveCamera, Scene, Timer, WebGLRenderer } from "three";
 import { OrbitControls } from 'three/addons/controls/OrbitControls.js';
