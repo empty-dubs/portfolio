@@ -15,71 +15,42 @@
 
 </script>
 
-<div class="panel-wrapper w-full flex">
+<div class="panel-wrapper">
     <div class="panel" class:expanded>
 
-    <button class="handle w-full" onclick={toggle} aria-expanded={expanded} aria-controls="panel-body">
-        <span class="handle-label">Settings</span>
-        <Icon data={gear}/>
-    </button>
+      <button class="handle w-full" onclick={toggle} aria-expanded={expanded} aria-controls="panel-body">
+          <span class="handle-label">Settings</span>
+          <Icon data={gear}/>
+      </button>
 
-    {#if expanded}
-      <!-- <div class='panel-body' transition:slide={ { duration: 380, easing: cubicOut }}> -->
-      <div>
-        <AnimationControls {animation}/>
-      </div>
-    {/if}
+      {#if expanded}
+        <div class='panel-body' transition:slide={ { duration: 200, easing: cubicOut }}>
+          <AnimationControls {animation}/>
+        </div>
+      {/if}
 
     </div>
 </div>
 
 <style>
  
-  /* :global(body) {
-    margin: 0;
-    min-height: 100vh;
-    background: #0c0c10;
-    font-family: 'DM Mono', monospace;
-    color: #e2ddd8;
-  } */
- 
-  /* ── Layout ─────────────────────────────────── */
- 
   .panel-wrapper {
-    position: fixed;
-    /* left: 0; */
-    /* right: 0; */
+    position: relative;
     justify-content: center;
-    z-index: 1;
-    /* pointer-events: none; */
+    /* background: #0c0c10; */
+    background: black;
+    color: #e2ddd8;
   }
- 
+
   .panel {
-    /* pointer-events: all; */
-    background: #13131a;
     border: 1px solid none;
-    /* border-bottom: none; */
-    border-radius: 18px 18px 18px 18px;
   }
- 
-  .panel.expanded {
-    width: min(640px, 100%);
-    border: 1px solid rgb(255, 255, 255, 0.05);
-    /* border-color: #3a3a52; */
-  }
- 
-  /* ── Handle ─────────────────────────────────── */
  
   .handle {
-    /* all: unset; */
-    /* display: flex; */
     align-items: center;
-    /* gap: 12px; */
-    /* padding: 14px 20px; */
     box-sizing: border-box;
     cursor: pointer;
     border-bottom: 1px solid transparent;
-    /* transition: background 0.2s ease, border-color 0.3s ease; */
     user-select: none;
   }
  
@@ -88,7 +59,16 @@
   }
  
   .handle:hover {
-    background: rgba(255, 255, 255, 0.03);
+    background: rgba(255, 255, 255, 0.1);
+  }
+
+  .panel-body {
+    background: black;
+    position:absolute;
+    left: 50%;
+    transform: translate(-50%, 0);
+    z-index: 1;
+    width: 50%;
   }
  
 </style>

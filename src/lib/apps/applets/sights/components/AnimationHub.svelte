@@ -4,7 +4,7 @@
 
     import AnimationControlPanel from "./AnimationControlPanel.svelte";
     import Canvas from "../threeJS/components/Canvas.svelte";
-    import NavBar from "../components/NavBar.svelte";
+    import NavBar from "./NavBar.svelte";
     
     import { setCanvas } from "./ThreeJSCanvasContext";
 
@@ -55,8 +55,6 @@
     }
 
     .right-pane {
-        padding-right: 1rem;
-
         max-height: inherit;
 
         max-width: inherit;
