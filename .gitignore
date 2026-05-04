@@ -31,3 +31,5 @@ data
 # Images
 *.svg
 *.png
+
+AnimationControlPanelTest.svelte

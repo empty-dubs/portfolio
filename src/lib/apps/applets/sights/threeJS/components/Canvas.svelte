@@ -2,10 +2,10 @@
 
     import { onMount } from "svelte";
 
-    import { getCanvas } from "./canvasContext";
+    import { getCanvas } from "$lib/apps/applets/sights/components/ThreeJSCanvasContext";
     import CanvasManager from "./canvasManager";
 
-    import type { CanvasContext } from "./canvasContext";
+    import type { CanvasContext } from "$lib/apps/applets/sights/components/ThreeJSCanvasContext";
 
     let canvas: HTMLCanvasElement;
 

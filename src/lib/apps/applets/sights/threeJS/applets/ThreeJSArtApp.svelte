@@ -1,12 +1,14 @@
 <script lang="ts">
 
-    import NavBar from "../components/NavBar.svelte";
-    import Canvas from "../components/Canvas.svelte";
+    import { onMount } from "svelte";
 
-	import { onMount } from "svelte";
-    import { setCanvas } from "../components/canvasContext";
+    import NavBar from "$lib/apps/applets/sights/components/NavBar.svelte";
+    import Canvas from "$lib/apps/applets/sights/threeJS/components/Canvas.svelte";
+    import AnimationControlPanel from "$lib/apps/applets/sights/components/AnimationControlPanel.svelte";
 
-    import type { CanvasContext } from "../components/canvasContext";
+    import { setCanvas } from "$lib/apps/applets/sights/components/ThreeJSCanvasContext";
+    
+    import type { CanvasContext } from "$lib/apps/applets/sights/components/ThreeJSCanvasContext";
 
     let animations: object[] | undefined = $state();
     let canvasContext: CanvasContext = $state({ canvasManager: null });
@@ -28,7 +30,8 @@
     <div class="left-pane">
         <NavBar {animations} bind:currentAnimation={CurrentAnimation}/>
     </div>
-    <div class="right-pane flex flex-1">
+    <div class="right-pane flex flex-1 flex-col">
+        <AnimationControlPanel animation={CurrentAnimation}></AnimationControlPanel>
         <Canvas animation={CurrentAnimation}></Canvas>
     </div>
 </main>

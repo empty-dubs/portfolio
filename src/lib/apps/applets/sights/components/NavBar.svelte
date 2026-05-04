@@ -1,7 +1,5 @@
 <script lang="ts">
 
-    import AnimationControls from "./AnimationControls.svelte";
-
     let { animations, currentAnimation=$bindable() } = $props();
 
     let searchText = $state('');
@@ -24,9 +22,6 @@
 
         {#each filteredAnimations as animation (animation.metadata.name)}
             <button class="menu-item" onclick={() => selectItem(animation)}>{animation.metadata.text}</button>
-            {#if animation === currentAnimation}
-                <AnimationControls {animation}/>
-            {/if}
         {/each}
     {/if}
 

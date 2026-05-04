@@ -6,9 +6,9 @@
     import refresh from 'svelte-awesome/icons/refresh';
     import repeat from 'svelte-awesome/icons/repeat';
 
-    import { getCanvas } from './canvasContext';
+    import { getCanvas } from './ThreeJSCanvasContext';
 
-    import type { CanvasContext } from './canvasContext';
+    import type { CanvasContext } from './ThreeJSCanvasContext';
 
     let { animation } = $props();
 
@@ -22,7 +22,7 @@
         minValue: number
     }
 
-    let parameters: AnimationParameter[] = Object.values(animation.metadata.parameters);
+    let parameters: AnimationParameter[] = $derived(Object.values(animation.metadata.parameters));
 
     function boundInput(currentValue: number, maxValue: number, minValue: number): number {
         if (currentValue > maxValue) currentValue = maxValue;
