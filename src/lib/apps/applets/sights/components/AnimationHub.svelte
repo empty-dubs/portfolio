@@ -1,20 +1,23 @@
 <script lang="ts">
 
-    import Canvas from "../components/Canvas.svelte";
-    import NavBar from "../../components/NavBar.svelte";
+    import { onMount } from "svelte";
 
-	import { onMount } from "svelte";
-    import { setCanvas } from "../components/canvasContext";
+    import AnimationControlPanel from "./AnimationControlPanel.svelte";
+    import Canvas from "../threeJS/components/Canvas.svelte";
+    import NavBar from "../components/NavBar.svelte";
+    
+    import { setCanvas } from "./ThreeJSCanvasContext";
 
-    import type { CanvasContext } from "../components/canvasContext";
+    import type { CanvasContext } from "./ThreeJSCanvasContext";
+
+    let { modules } = $props();
 
     let animations: object[] | undefined = $state();
     let canvasContext: CanvasContext = $state({ canvasManager: null });
     let CurrentAnimation: object | undefined = $state();
 
-    const modules = import.meta.glob('../animations/sketches/**/*.js', { eager: true });
-
     onMount(() => {
+
         animations = Object.values(modules).map(mod => mod.default ?? mod).filter(mod => !mod.metadata.hidden);
 
         if (animations.length > 0) CurrentAnimation = animations[0];
@@ -28,7 +31,8 @@
     <div class="left-pane">
         <NavBar {animations} bind:currentAnimation={CurrentAnimation}/>
     </div>
-    <div class="right-pane flex flex-1">
+    <div class="right-pane flex flex-1 flex-col">
+        <AnimationControlPanel animation={CurrentAnimation}></AnimationControlPanel>
         <Canvas animation={CurrentAnimation}></Canvas>
     </div>
 </main>

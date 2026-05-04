@@ -32,6 +32,7 @@
 
     .app-container {
         max-height: inherit;
+        min-height: inherit;
     }
 
 </style>
