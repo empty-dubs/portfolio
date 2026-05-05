@@ -167,6 +167,7 @@ export default {
 		active: false,
 		address: '/p5#sketches_tiles',
 		name: 'tiles',
+		engine: 'p5',
 		// category: 'shapes',
 		// controllable: true,
 		// dynamic: false,

@@ -74,6 +74,7 @@ export default {
 		active: false,
 		address: '/p5#sketches_puddle_colored',
 		name: 'puddle-colored',
+		engine: 'p5',
 		// category: 'shapes',
 		// controllable: true,
 		// dynamic: false,

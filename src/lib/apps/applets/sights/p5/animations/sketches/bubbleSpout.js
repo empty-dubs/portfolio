@@ -71,6 +71,7 @@ export default {
 		active: false,
 		address: '/p5#sketches_bubble_spout',
 		name: 'bubble-spout',
+		engine: 'p5',
 		// category: 'shapes',
 		// controllable: true,
 		// dynamic: false,

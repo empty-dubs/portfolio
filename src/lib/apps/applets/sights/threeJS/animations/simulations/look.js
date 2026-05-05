@@ -25,6 +25,7 @@ export default {
         category: 'simulations',
         controllable: true,
         dynamic: true,
+        engine: 'threeJS',
         hidden: false,
         name: 'look',
         parameters: {

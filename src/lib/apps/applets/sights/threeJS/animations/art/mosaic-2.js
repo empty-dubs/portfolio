@@ -25,6 +25,7 @@ export default {
 	category: 'math',
 	controllable: false,
 	dynamic: true,
+    engine: 'threeJS',
 	hidden: false,
 	name: 'mosaic-2',
 	parameters: {

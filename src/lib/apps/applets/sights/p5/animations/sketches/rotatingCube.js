@@ -42,6 +42,7 @@ export default {
 		active: false,
 		address: '/p5#sketches_rotating_cube',
 		name: 'rotating-cube',
+		engine: 'p5',
 		// category: 'shapes',
 		// controllable: true,
 		// dynamic: false,

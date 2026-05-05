@@ -36,6 +36,7 @@ export default {
         category: 'math',
         controllable: true,
         dynamic: true,
+        engine: 'threeJS',
         hidden: false,
         name: 'mosaic-bfs-2',
         parameters: {

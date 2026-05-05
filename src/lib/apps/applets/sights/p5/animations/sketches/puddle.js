@@ -55,6 +55,7 @@ export default {
 		active: false,
 		address: '/p5#sketches_puddle',
 		name: 'puddle',
+		engine: 'p5',
 		// category: 'shapes',
 		// controllable: true,
 		// dynamic: false,

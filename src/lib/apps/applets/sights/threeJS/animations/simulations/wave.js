@@ -26,6 +26,7 @@ export default {
         category: 'simulations',
         controllable: false,
         dynamic: true,
+        engine: 'threeJS',
         hidden: false,
         name: 'wave',
         parameters: {

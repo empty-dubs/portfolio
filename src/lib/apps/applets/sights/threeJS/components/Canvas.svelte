@@ -2,35 +2,31 @@
 
     import { onMount } from "svelte";
 
-    import { getCanvas } from "$lib/apps/applets/sights/components/ThreeJSCanvasContext";
-    import CanvasManager from "./canvasManager";
+    import { getCanvasState } from "../../components/CanvasState.svelte";
 
-    import type { CanvasContext } from "$lib/apps/applets/sights/components/ThreeJSCanvasContext";
+    const canvasState = getCanvasState();
 
     let canvas: HTMLCanvasElement;
-
-    const canvasContext: CanvasContext = getCanvas();
 
     let { animation } = $props();
 
     onMount(() => {
+        canvasState.setCanvas('threeJS');
 
-        canvasContext.canvasManager = new CanvasManager();
+        canvasState.canvas.initializeCanvas(canvas);
 
-        canvasContext.canvasManager.initializeCanvas(canvas);
-
-        canvasContext.canvasManager.checkCanvasSize(canvas);
+        canvasState.canvas.checkCanvasSize(canvas);
 
         // onDestory/unmount behavior
         return () => {
-            // if (frameId) cancelAnimationFrame(frameId);
-            canvasContext.canvasManager?.renderer?.setAnimationLoop(null);
+            canvasState.canvas?.renderer?.setAnimationLoop(null);
+            canvasState.canvas = null;
         }
     });
 
     $effect(() => {
         // redraw canvas when the animation changes
-        if (animation) canvasContext.canvasManager?.draw(animation);
+        if (animation) canvasState.canvas?.draw(animation);
     });
 
 </script>

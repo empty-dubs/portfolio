@@ -42,6 +42,7 @@ export default {
 		active: false,
 		address: '/p5#sketches_random_covering',
 		name: 'random-covering',
+		engine: 'p5',
 		// category: 'shapes',
 		// controllable: true,
 		// dynamic: false,

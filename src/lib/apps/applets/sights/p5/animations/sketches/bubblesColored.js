@@ -75,6 +75,7 @@ export default {
 		active: false,
 		address: '/p5#sketches_bubbles_colored',
 		name: 'bubbles-colored',
+		engine: 'p5',
 		// category: 'shapes',
 		// controllable: true,
 		// dynamic: false,

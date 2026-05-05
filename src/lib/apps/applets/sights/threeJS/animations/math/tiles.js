@@ -41,6 +41,7 @@ export default {
         category: 'math',
         controllable: true,
         dynamic: false,
+        engine: 'threeJS',
         hidden: true,
         name: 'tiles',
         parameters: {

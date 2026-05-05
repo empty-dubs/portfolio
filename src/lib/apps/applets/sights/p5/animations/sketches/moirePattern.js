@@ -64,6 +64,7 @@ export default {
 		active: false,
 		address: '/p5#sketches_moire_pattern',
 		name: 'moire-pattern',
+		engine: 'p5',
 		// category: 'shapes',
 		// controllable: true,
 		// dynamic: false,

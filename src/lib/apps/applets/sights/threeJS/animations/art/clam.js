@@ -17,6 +17,7 @@ export default {
         category: 'art',
         controllable: true,
         dynamic: false,
+        engine: 'threeJS',
         hidden: true,
         name: 'clam',
         parameters: {

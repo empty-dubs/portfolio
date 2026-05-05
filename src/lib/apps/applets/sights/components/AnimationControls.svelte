@@ -6,13 +6,12 @@
     import refresh from 'svelte-awesome/icons/refresh';
     import repeat from 'svelte-awesome/icons/repeat';
 
-    import { getCanvas } from './ThreeJSCanvasContext';
+    import { getCanvasState } from "./CanvasState.svelte";
 
-    import type { CanvasContext } from './ThreeJSCanvasContext';
+    const canvasState = getCanvasState();
 
     let { animation } = $props();
 
-    const canvasContext: CanvasContext = getCanvas();
 
     interface AnimationParameter {
         currentValue: number,
@@ -34,15 +33,15 @@
     function resetAnimation (animation: object): void {
         for (const parameter of parameters) parameter.currentValue = parameter.defaultValue;
 
-        canvasContext.canvasManager?.draw(animation);
+        canvasState.canvas.draw(animation);
     };
 
     function restartAnimation(animation: object) {
-        canvasContext.canvasManager?.draw(animation)
+        canvasState.canvas.draw(animation)
     };
 
     function toFullScreen(): void {
-        const canvas = canvasContext.canvasManager?.canvas;
+        const canvas = canvasState.canvas.canvas;
 
         if (canvas.requestFullscreen) {
             canvas.requestFullscreen();

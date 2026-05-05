@@ -33,6 +33,7 @@ export default {
         category: 'art',
         controllable: false,
         dynamic: true,
+        engine: 'threeJS',
         hidden: false,
         name: 'chrysanthemum6-circle',
         parameters: {
