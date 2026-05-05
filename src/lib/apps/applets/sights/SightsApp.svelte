@@ -4,7 +4,7 @@
     import ThreeJSMathApp from "$lib/apps/applets/sights/threeJS/applets/ThreeJSMathApp.svelte";
     // import ThreeJSPhysicsApp from "$lib/apps/applets/sights/threeJS/applets/ThreeJSPhysicsApp.svelte";
     import ThreeJSSimulationsApp from "$lib/apps/applets/sights/threeJS/applets/ThreeJSSimulationsApp.svelte";
-    import P5App from "./p5/P5App.svelte";
+    import P5Sketches from "./p5/applets/P5Sketches.svelte";
 
 	import Header from "$lib/components/Header.svelte";
     import ResponsiveContainer from "$lib/components/ResponsiveContainer.svelte";
@@ -16,7 +16,7 @@
       { label: 'ThreeJS Math', component: ThreeJSMathApp },
     //   { label: 'ThreeJS Physics', component: ThreeJSPhysicsApp },
       { label: 'ThreeJS Simulations', component: ThreeJSSimulationsApp },
-      { label: 'P5', component: P5App },
+      { label: 'P5 Sketches', component: P5Sketches },
     ];
 
     let CurrentTab = $state(tabs[0]);
