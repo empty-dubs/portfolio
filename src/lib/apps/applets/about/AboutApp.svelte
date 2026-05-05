@@ -16,7 +16,7 @@
 
 </script>
 
-<main class="app-container items-center justify-center flex grow flex-col">
+<main class="app-container flex grow flex-col items-center justify-center">
     <div class='icon-set flex'>
         {#each aboutLinks as { src, icon } (src)}
             <a href="{src}" rel="noopener" class="about-icon" target="_blank">
