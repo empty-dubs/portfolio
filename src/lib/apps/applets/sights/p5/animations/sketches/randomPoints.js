@@ -45,6 +45,7 @@ export default {
 		active: false,
 		address: '/p5#sketches_random_points',
 		name: 'random-points',
+		engine: 'p5',
 		// category: 'shapes',
 		// controllable: true,
 		// dynamic: false,

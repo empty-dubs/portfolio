@@ -150,6 +150,7 @@ export default {
 		active: false,
 		address: '/p5#sketches_bleeding_shapes2',
 		name: 'bleeding-shapes-2',
+		engine: 'p5',
 		// category: 'shapes',
 		// controllable: true,
 		// dynamic: false,

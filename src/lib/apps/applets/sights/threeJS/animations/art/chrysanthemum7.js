@@ -20,6 +20,7 @@ export default {
         category: 'art',
         controllable: true,
         dynamic: true,
+        engine: 'threeJS',
         hidden: false,
         name: 'chrysanthemum7',
         parameters: {

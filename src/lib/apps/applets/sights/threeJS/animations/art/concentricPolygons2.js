@@ -10,6 +10,7 @@ export default {
         category: 'art',
         controllable: false,
         dynamic: true,
+        engine: 'threeJS',
         hidden: true,
         name: 'concentric polygons 2',
         parameters: {

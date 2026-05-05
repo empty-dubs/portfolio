@@ -194,6 +194,7 @@ export default {
 		active: false,
 		address: '/p5#sketches_bleeding_shapes4',
 		name: 'bleeding-shapes-4',
+		engine: 'p5',
 		// category: 'shapes',
 		// controllable: true,
 		// dynamic: false,

@@ -71,6 +71,7 @@ export default {
 		active: false,
 		address: '/p5#sketches_bubbles',
 		name: 'bubbles',
+		engine: 'p5',
 		// category: 'shapes',
 		// controllable: true,
 		// dynamic: false,

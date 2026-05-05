@@ -14,6 +14,7 @@ export default {
         category: 'art',
         controllable: false,
         dynamic: false,
+        engine: 'threeJS',
         hidden: true,
         name: 'blanket',
         parameters: {

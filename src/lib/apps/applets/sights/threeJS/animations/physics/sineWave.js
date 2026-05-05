@@ -13,6 +13,7 @@ export default {
         category: 'physics',
         controllable: true,
         dynamic: false,
+        engine: 'threeJS',
         hidden: true,
         name: 'sine wave',
         parameters: {

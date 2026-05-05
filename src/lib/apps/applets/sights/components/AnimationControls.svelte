@@ -6,20 +6,21 @@
     import refresh from 'svelte-awesome/icons/refresh';
     import repeat from 'svelte-awesome/icons/repeat';
 
-    import { getCanvas } from './ThreeJSCanvasContext';
+    import { getCanvasState } from "./CanvasState.svelte";
 
-    import type { CanvasContext } from './ThreeJSCanvasContext';
+    const canvasState = getCanvasState();
 
     let { animation } = $props();
 
-    const canvasContext: CanvasContext = getCanvas();
 
     interface AnimationParameter {
-        currentValue: number,
-        defaultValue: number,
+        currentValue: number| string,
+        defaultValue: number| string,
         label: string,
-        maxValue: number,
-        minValue: number
+        maxValue?: number,
+        minValue?: number,
+        options?: string[],
+        type: string
     }
 
     let parameters: AnimationParameter[] = $derived(Object.values(animation.metadata.parameters));
@@ -34,15 +35,15 @@
     function resetAnimation (animation: object): void {
         for (const parameter of parameters) parameter.currentValue = parameter.defaultValue;
 
-        canvasContext.canvasManager?.draw(animation);
+        canvasState.canvas.draw(animation);
     };
 
     function restartAnimation(animation: object) {
-        canvasContext.canvasManager?.draw(animation)
+        canvasState.canvas.draw(animation)
     };
 
     function toFullScreen(): void {
-        const canvas = canvasContext.canvasManager?.canvas;
+        const canvas = canvasState.canvas.canvas;
 
         if (canvas.requestFullscreen) {
             canvas.requestFullscreen();
@@ -59,18 +60,34 @@
 
 <main class="navbar-controls flex flex-col">
     <div>
-        {#each parameters as {label, maxValue, minValue}, index (label)}
+        {#each parameters as {label, maxValue, minValue, options, type}, index (label)}
             <p>{label}</p>
-            <input
-                class="w-full"
-                type="number"
-                max="{maxValue}"
-                min="{minValue}"
-                bind:value={
-                    () => parameters[index].currentValue,
-                    (value: number) => parameters[index].currentValue = boundInput(value, maxValue, minValue)
-                }
-            />
+            {#if type === 'text'}
+                <input
+                    class="w-full"
+                    type="text"
+                    bind:value={parameters[index].currentValue}
+                />
+                {:else if type === 'select'}
+                    <select class="w-full" bind:value={parameters[index].currentValue}>
+                        {#each options as option (option)}
+                            <option value={option}>
+                                {option}
+                            </option>
+                        {/each}
+                    </select>
+                {:else}
+                    <input
+                        class="w-full"
+                        type="number"
+                        max="{maxValue}"
+                        min="{minValue}"
+                        bind:value={
+                            () => parameters[index].currentValue,
+                            (value: number) => parameters[index].currentValue = boundInput(value, maxValue, minValue)
+                        }
+                    />
+            {/if}
         {/each}
     </div>
     <div class="flex w-full">

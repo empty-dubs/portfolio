@@ -9,6 +9,8 @@
 	import Header from "$lib/components/Header.svelte";
     import ResponsiveContainer from "$lib/components/ResponsiveContainer.svelte";
 
+    import { setCanvasState } from "./components/CanvasState.svelte";
+
     const tabs = [
       { label: 'ThreeJS Art', component: ThreeJSArtApp },
       { label: 'ThreeJS Math', component: ThreeJSMathApp },
@@ -22,6 +24,8 @@
     let appHeight = $state();
     let headerHeight = $state();
     let appContentHeight = $derived(appHeight - headerHeight);
+
+    setCanvasState();
     
 </script>
 

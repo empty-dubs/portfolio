@@ -2,14 +2,11 @@
 
     import { onMount, onDestroy } from "svelte";
 
-    import { getCanvas } from "./canvasContext";
-    import CanvasManager from "./canvasManager";
+    import { getCanvasState } from "../../components/CanvasState.svelte";
 
-    import type { CanvasContext } from "./canvasContext";
+    const canvasState = getCanvasState();
 
     let container: HTMLCanvasElement;
-
-    const canvasContext: CanvasContext = getCanvas();
 
     let { animation } = $props();
 
@@ -17,18 +14,23 @@
         await import('p5').then(module => {
             const p5 = module.default;
 
-            canvasContext.canvasManager = new CanvasManager(p5);
-            canvasContext.canvasManager.initializeCanvas(container);
+            canvasState.setCanvas('p5', p5);
+            
+            canvasState.canvas.initializeCanvas(container);
         });
+
+        return () => {
+            canvasState.canvas = null;
+        }
     });
 
     onDestroy(() => {
-        canvasContext.canvasManager?.resetCanvas();
+        canvasState.canvas?.resetCanvas();
     });
 
     $effect(() => {
-        if (canvasContext.canvasManager && animation) {
-            canvasContext.canvasManager?.draw(animation);
+        if (canvasState.canvas && animation) {
+            canvasState.canvas?.draw(animation);
         }
     });
 

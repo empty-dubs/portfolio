@@ -1,7 +1,7 @@
 <script>
     let {tabs, currentTab = $bindable()} = $props();
 
-    const tabChange = (tab) => {
+    const tabChange = tab => {
         currentTab = tab
     };
 </script>
