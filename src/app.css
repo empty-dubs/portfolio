@@ -17,11 +17,7 @@ body {
 	box-sizing: border-box;
 }
 
-header {
-	background: #444444;
-}
-
-footer {
+header, footer {
 	background: #444444;
 }
 
@@ -42,12 +38,20 @@ a.icon {
 	color: #B0B0B0;
 }
 
-button, h1, p {
+button, h1, p, input, select, textarea {
 	color: #B0B0B0;
 }
 
 button:hover {
 	color: #ddd;
+}
+
+button.active {
+	border-bottom: #888888;        
+}
+
+p.copyright {
+	border-top: #888888;
 }
 
 label {
@@ -58,7 +62,6 @@ input, select, textarea {
 	border: 1px solid #888888;
 	border-radius: 2px;
 
-	color: #B0B0B0;
 	font-family: inherit;
 	font-size: inherit;
 

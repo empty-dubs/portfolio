@@ -20,8 +20,6 @@
     }
 
     button {
-        background-color: transparent;
-
         font-size: 18px;
 
         margin: 0 16px;
@@ -31,8 +29,7 @@
     }
 
     .active {
-        border-bottom: 2px solid #888888;        
+        border-bottom: 2px solid;   
     }
-
 
 </style>

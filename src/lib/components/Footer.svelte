@@ -22,9 +22,8 @@
     .copyright {
         display: inline-block;
 
-        border-top: 1px solid #888888;
-        
-        color: #B0B0B0;
         font-size: 14px;
+
+        border-top: 1px solid;
     }
 </style>
