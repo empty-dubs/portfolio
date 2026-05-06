@@ -14,13 +14,7 @@
 
 <style>
     footer {
-        background: #f7f7f7;
-        bottom: 0;
-        position: fixed;
-
         padding: 10px 0px;
-
-        width: 100%;
 
         text-align: center;
     }
@@ -28,9 +22,10 @@
     .copyright {
         display: inline-block;
 
-        border-top: 1px solid #ddd;
+        border-top: 1px solid #888888;
         
-        color: #aaa;
+        color: #B0B0B0;
+
         font-size: 14px;
     }
 </style>

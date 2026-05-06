@@ -43,15 +43,12 @@
 
     .about-icon {
         font-size: 20px;
-        color: black;
+        color: #B0B0B0;
         text-decoration: none;
-    }
-
-    .about-icon:hover, .about-icon:active, .about-icon:visited {
-        color: black;
     }
 
     p {
         padding: 5px;
     }
+    
 </style>
