@@ -20,12 +20,13 @@
         grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
         gap: 1em;
 
-        text-align: center;
         max-height: inherit;
         min-height: inherit;
 
         overflow-x: hidden;
         overflow-y: auto;
+
+        text-align: center;
     }
 
     .card {
