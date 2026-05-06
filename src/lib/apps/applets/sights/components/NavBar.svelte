@@ -18,11 +18,14 @@
 
 <main class="navbar flex flex-col">
     {#if animations}
-        <input class="w-full" type="text" placeholder="Search" bind:value={searchText}>
-
-        {#each filteredAnimations as animation (animation.metadata.name)}
-            <button class="menu-item" onclick={() => selectItem(animation)}>{animation.metadata.text}</button>
-        {/each}
+        <div>
+            <input class="w-full" type="text" placeholder="Search" bind:value={searchText}>
+        </div>
+        <div class='animation-list flex flex-col'>
+            {#each filteredAnimations as animation (animation.metadata.name)}
+                <button class="menu-item" onclick={() => selectItem(animation)}>{animation.metadata.text}</button>
+            {/each}
+        </div>
     {/if}
 
 </main>
@@ -31,24 +34,28 @@
 
     .navbar {
         max-height: inherit;
+
+        overflow: hidden;
+    }
+
+    .animation-list {
+        overflow: auto;
     }
 
     button {
-        background-color: transparent;
-
         border: None;
 
         text-align: left;
     }
 
     .menu-item {
-        margin: 0.5rem 0;
+        margin: 0.5rem 0.5rem 0.5rem 0.5rem;
         padding: 0.25rem;
 
         cursor: pointer;
     }
 
     .menu-item:hover {
-        background-color: #ddd;
+        color: #ddd;
     }
 </style>

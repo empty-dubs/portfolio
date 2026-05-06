@@ -25,16 +25,16 @@
         margin: 0 16px;
         border: none;
 
-        color: #555;
+        color: #B0B0B0;
         font-size: 18px;
 
         cursor: pointer;
     }
 
     .active {
-        border-bottom: 2px solid #d91b42;        
+        border-bottom: 2px solid #888888;        
 
-        color: #d91b42;
+        color: #B0B0B0;
     }
 
 

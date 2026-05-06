@@ -30,9 +30,8 @@
 </script>
 
 <main id="app-container" class="flex grow flex-col h-screen" bind:clientHeight={appHeight}>
-    <header bind:clientHeight={headerHeight}>
-        <Header {tabs} bind:currentTab={CurrentTab}></Header>
-    </header>
+
+    <Header {tabs} bind:currentTab={CurrentTab} bind:headerHeight={headerHeight}></Header>
 
     <div class="app-content flex grow" bind:clientHeight={appContentHeight} style="max-height:{appContentHeight}px;">
         <CurrentTab.component></CurrentTab.component>
@@ -46,14 +45,6 @@
 
     #app-container {
         overflow: hidden;
-    }
-
-    header {
-        background-color: #f4f4f4;
-
-        padding: 1px;
-
-        text-align: center;
     }
 
 </style>
