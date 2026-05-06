@@ -18,7 +18,7 @@
 <div class="panel-wrapper">
     <div class="panel" class:expanded>
 
-      <button class="handle w-full" onclick={toggle} aria-expanded={expanded} aria-controls="panel-body">
+      <button class="handle items-center w-full" onclick={toggle} aria-expanded={expanded} aria-controls="panel-body">
           <span class="handle-label">Settings</span>
           <Icon data={gear}/>
       </button>
@@ -37,20 +37,22 @@
   .panel-wrapper {
     position: relative;
     justify-content: center;
-    /* background: #0c0c10; */
-    background: black;
+
+    background: inherit;
+
     color: #e2ddd8;
   }
 
   .panel {
+    background: inherit;
     border: 1px solid none;
   }
  
   .handle {
-    align-items: center;
     box-sizing: border-box;
-    cursor: pointer;
     border-bottom: 1px solid transparent;
+
+    cursor: pointer;
     user-select: none;
   }
  
@@ -63,12 +65,16 @@
   }
 
   .panel-body {
-    background: black;
     position:absolute;
     left: 50%;
-    transform: translate(-50%, 0);
-    z-index: 1;
+
+    background: #121212;
+
     width: 50%;
+
+    z-index: 1;
+
+    transform: translate(-50%, 0);
   }
  
 </style>

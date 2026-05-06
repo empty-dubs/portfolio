@@ -22,6 +22,7 @@
     .phone-warning {
         position: relative;
         top: 50%;
+
         text-align: center;
     }
 

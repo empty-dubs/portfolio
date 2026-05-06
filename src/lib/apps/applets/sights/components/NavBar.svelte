@@ -49,13 +49,10 @@
     }
 
     .menu-item {
-        margin: 0.5rem 0.5rem 0.5rem 0.5rem;
         padding: 0.25rem;
+        margin: 0.5rem 0.5rem 0.5rem 0.5rem;
 
         cursor: pointer;
     }
 
-    .menu-item:hover {
-        color: #ddd;
-    }
 </style>

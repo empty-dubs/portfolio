@@ -19,7 +19,7 @@
 <main class="app-container flex grow flex-col items-center justify-center">
     <div class='icon-set flex'>
         {#each aboutLinks as { src, icon } (src)}
-            <a href="{src}" rel="noopener" class="about-icon" target="_blank">
+            <a href="{src}" rel="noopener" class="icon" target="_blank">
                 <Icon data={icon} scale={1.75}/>
             </a>
         {/each}
@@ -39,12 +39,6 @@
 
     .icon-set {
         gap: 28px;
-    }
-
-    .about-icon {
-        font-size: 20px;
-        color: #B0B0B0;
-        text-decoration: none;
     }
 
     p {

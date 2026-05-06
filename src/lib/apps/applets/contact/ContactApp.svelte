@@ -31,34 +31,27 @@
     </div>
     <div>
         {#each contactLinks as { src, icon } (src)}
-            <a href="{src}" rel="noopener" class="contact-icon" target="_blank">
+            <a href="{src}" rel="noopener" class="icon" target="_blank">
                 <Icon data={icon} scale={1.25}/>
             </a>
         {/each}
     </div>
     <div>
-        <a href="https://github.com/" rel="noopener" class="contact-icon" target="_blank">
+        <a href="https://github.com/" rel="noopener" class="icon" target="_blank">
             <Icon data={github} scale={1.25}/>
         </a>
     </div>
 </main>
 
 <style>
+
     .app-container {
-        text-align: center;
         position: relative;
         top: 20%;
+
         max-height: inherit;
-    }
 
-    .contact-icon {
-        font-size: 20px;
-        color: black;
-        text-decoration: none;
-    }
-
-    .contact-icon:hover, .contact-icon:active, .contact-icon:visited {
-        color: black;
+        text-align: center;
     }
 
     h1 {
@@ -68,4 +61,5 @@
     p {
         padding: 5px;
     }
+
 </style>

@@ -22,19 +22,16 @@
     button {
         background-color: transparent;
 
+        font-size: 18px;
+
         margin: 0 16px;
         border: none;
-
-        color: #B0B0B0;
-        font-size: 18px;
 
         cursor: pointer;
     }
 
     .active {
         border-bottom: 2px solid #888888;        
-
-        color: #B0B0B0;
     }
 
 

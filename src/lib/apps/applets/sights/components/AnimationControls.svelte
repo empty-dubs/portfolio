@@ -58,7 +58,7 @@
 
 </script>
 
-<main class="navbar-controls flex flex-col">
+<main class="animation-controls flex flex-col">
     <div>
         {#each parameters as {label, maxValue, minValue, options, type}, index (label)}
             <p>{label}</p>
@@ -105,7 +105,7 @@
 
 <style>
 
-    .navbar-controls {
+    .animation-controls {
         text-align: left;
     }
 
