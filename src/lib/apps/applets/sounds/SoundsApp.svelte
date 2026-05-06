@@ -4,9 +4,9 @@
 
 </script>
 
-<main class="app-container items-center justify-center flex-1 w-full">
+<main class="app-container grid grow items-center">
     {#each mediaPlayers as { name, embedref } (name)}
-        <div>
+        <div class='card'>
             <span>
                 {@html embedref}
             </span>
@@ -17,13 +17,19 @@
 <style>
 
     .app-container {
+        grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+        gap: 1em;
+
         text-align: center;
         max-height: inherit;
         min-height: inherit;
 
-        max-width: 25%;
-        display: block;
-        margin: auto;
+        overflow-x: hidden;
+        overflow-y: auto;
+    }
+
+    .card {
+        padding: 2em;
     }
 
 </style>
