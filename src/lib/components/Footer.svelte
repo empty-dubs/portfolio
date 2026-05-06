@@ -14,9 +14,9 @@
 
 <style>
     footer {
-        padding: 10px 0px;
-
         text-align: center;
+
+        padding: 10px 0px;
     }
     
     .copyright {
@@ -25,7 +25,6 @@
         border-top: 1px solid #888888;
         
         color: #B0B0B0;
-
         font-size: 14px;
     }
 </style>

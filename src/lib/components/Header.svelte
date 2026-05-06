@@ -41,9 +41,9 @@
 <style>
 
     header {
-        padding: 1px;
-
         text-align: center;
+
+        padding: 1px;
     }
 
 </style>

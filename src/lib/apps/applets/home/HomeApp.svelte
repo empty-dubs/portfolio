@@ -42,16 +42,15 @@
     .app-container {
         max-height: inherit;
         min-height: inherit;
-
         max-width: inherit;
+        overflow: hidden;
     }
 
-    :global(.home-attribute){
-        backface-visibility: hidden;
-        filter: blur(0);
-        float:left;
+    :global(.home-attribute) {
         position: relative;
-        -webkit-backface-visibility: hidden;
+        float:left;
+
+        filter: blur(0);
     }
 
 </style>

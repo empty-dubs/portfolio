@@ -42,16 +42,15 @@
     }
 
     .left-pane {
-        padding: 1rem 1rem 0rem 1rem;
-
         max-height: inherit;
 
         overflow: hidden;
+
+        padding: 1rem 1rem 0rem 1rem;
     }
 
     .right-pane {
         max-height: inherit;
-
         max-width: inherit;
 
         overflow: hidden;
