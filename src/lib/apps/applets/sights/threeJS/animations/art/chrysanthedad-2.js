@@ -31,13 +31,13 @@ export default {
 
     metadata: {
         active: false,
-        address: '/three#art_chrysanthedad_circle',
+        address: '/three#art_chrysanthedad_2',
         category: 'art',
         controllable: false,
         dynamic: true,
         engine: 'threeJS',
         hidden: false,
-        name: 'chrysanthedad-circle',
+        name: 'chrysanthedad-2',
         parameters: {
             numCenters: {
                 label: 'Number of Centers',
@@ -82,7 +82,7 @@ export default {
                 minValue: 1
             }
         },
-        text: 'chrysanthedad circle'
+        text: 'chrysanthedad 2'
     },
     
     init() {

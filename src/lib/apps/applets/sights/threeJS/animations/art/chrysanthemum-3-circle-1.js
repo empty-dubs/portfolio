@@ -6,8 +6,8 @@ Draw numPolygons transparent circles at position
 Each circle, i,  should rotate according to the following rule
     mesh.rotation.z += i % 2 === 0 ? delta / 2 : -delta / 2;
 
-Create two groups and add circles with even i to the first group and odd i to the second group
-Rotate one group clockwise and the other counterclockwise
+Add all circles to a group
+Rotate the group
 */
 
 import {
@@ -23,34 +23,34 @@ export default {
 
     metadata: {
         active: false,
-        address: '/three#art_chrysanthemum3_circle2',
+        address: '/three#art_chrysanthemum3_circle',
         category: 'art',
         controllable: true,
         dynamic: true,
         engine: 'threeJS',
         hidden: false,
-        name: 'chrysanthemum3-circle2',
+        name: 'chrysanthemum3-circle',
         parameters: {
             numNodes: {
                 label: 'Number of Nodes',
                 defaultValue: 12,
                 currentValue: 12,
-                maxValue: 1000,
+                maxValue: 64,
                 minValue: 3
             },
             numPolygons: {
                 label: 'Number of Polygons',
                 defaultValue: 12,
                 currentValue: 12,
-                maxValue: 1000,
+                maxValue: 24,
                 minValue: 0
             },
             polygonRadius: {
                 label: 'Polygon Radius',
                 defaultValue: 2,
                 currentValue: 2,
-                maxValue: 10,
-                minValue: 1
+                maxValue: 2,
+                minValue: 2
             },
             globalRadius: {
                 label: 'Global Radius',
@@ -60,7 +60,7 @@ export default {
                 minValue: 1
             },
         },
-        text: 'chrysanthemum 3 circle 2'
+        text: 'chrysanthemum 31'
     },
     
     init() {
@@ -70,8 +70,7 @@ export default {
         const polygonRadius = this.metadata.parameters.polygonRadius.currentValue;
         const globalRadius = this.metadata.parameters.globalRadius.currentValue;
 
-        const groupLeft = new Group();
-        const groupRight = new Group();
+        const group = new Group();
 
         const meshes = [];
 
@@ -93,23 +92,15 @@ export default {
                 0
             )
 
-            mesh.tick = delta => {
-                mesh.rotation.z += i % 2 === 0 ? delta / 2 : -delta / 2;
-            }
+            mesh.tick = delta => mesh.rotation.z += i % 2 === 0 ? delta / 2 : -delta / 2;
 
-            if (i % 2 === 0) {
-                groupLeft.add(mesh);
-            } else {
-                groupRight.add(mesh);
-            }
+            group.add(mesh);
 
         });
 
-        groupLeft.tick = delta => groupLeft.rotateZ(1e-1 * delta);
-        groupRight.tick = delta => groupRight.rotateZ(-1e-1 * delta);
+        group.tick = delta => group.rotateZ(1e-1 * delta);
 
-        meshes.push(groupLeft);
-        meshes.push(groupRight);
+        meshes.push(group);
 
         return meshes;
 
