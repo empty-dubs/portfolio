@@ -26,13 +26,13 @@ export default {
 
     metadata: {
         active: false,
-        address: '/three#art_chrysanthedad',
+        address: '/three#art_chrysanthedad_0',
         category: 'art',
         controllable: false,
         dynamic: true,
         engine: 'threeJS',
         hidden: false,
-        name: 'chrysanthedad',
+        name: 'chrysanthedad-1',
         parameters: {
             numCenters: {
                 label: 'Number of Centers',

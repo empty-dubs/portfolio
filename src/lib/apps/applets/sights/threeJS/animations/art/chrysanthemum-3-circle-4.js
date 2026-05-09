@@ -3,11 +3,15 @@ Draw numPolygons transparent circles at position
     globalRadius * Math.cos(phi(i, numPolygons)),
     globalRadius * Math.sin(phi(i, numPolygons)),
     0
-Each circle, i,  should rotate according to the following rule
-    mesh.rotation.z += i % 2 === 0 ? delta / 2 : -delta / 2;
-
-Add all circles to a group
-Rotate the group
+Each circle, i, should scale and rotate according to the following rule
+    dt += delta;
+    if (i % 2 === 0) {
+        mesh.scale.set(1 + 1e-1 * Math.cos(dt / 2) *  Math.sin(dt), 1 + 1e-1 * Math.cos(dt / 2) *  Math.sin(dt), 0);
+        mesh.rotateZ(2e-1 * delta * Math.sin(2 * dt));
+    } else {
+        mesh.scale.set(1 - 1e-1 * Math.cos(dt / 2) * Math.sin(dt), 1 - 1e-1 * Math.cos(dt / 2) * Math.sin(dt), 0);
+        mesh.rotateZ(-4e-1 * delta);
+    }
 */
 
 import {
@@ -23,13 +27,13 @@ export default {
 
     metadata: {
         active: false,
-        address: '/three#art_chrysanthemum3_circle',
+        address: '/three#art_chrysanthemum3_circle4',
         category: 'art',
         controllable: true,
         dynamic: true,
         engine: 'threeJS',
         hidden: false,
-        name: 'chrysanthemum3-circle',
+        name: 'chrysanthemum3-circle4',
         parameters: {
             numNodes: {
                 label: 'Number of Nodes',
@@ -60,7 +64,7 @@ export default {
                 minValue: 1
             },
         },
-        text: 'chrysanthemum 3 circle'
+        text: 'chrysanthemum 34'
     },
     
     init() {
@@ -70,7 +74,8 @@ export default {
         const polygonRadius = this.metadata.parameters.polygonRadius.currentValue;
         const globalRadius = this.metadata.parameters.globalRadius.currentValue;
 
-        const group = new Group();
+        const groupLeft = new Group();
+        const groupRight = new Group();
 
         const meshes = [];
 
@@ -92,15 +97,29 @@ export default {
                 0
             )
 
-            mesh.tick = delta => mesh.rotation.z += i % 2 === 0 ? delta / 2 : -delta / 2;
+            let dt = 0
 
-            group.add(mesh);
+            mesh.tick = delta => {
+                dt += delta;
+                if (i % 2 === 0) {
+                    mesh.scale.set(1 + 1e-1 * Math.cos(dt / 2) *  Math.sin(dt), 1 + 1e-1 * Math.cos(dt / 2) *  Math.sin(dt), 0);
+                    mesh.rotateZ(2e-1 * delta * Math.sin(2 * dt));
+                } else {
+                    mesh.scale.set(1 - 1e-1 * Math.cos(dt / 2) * Math.sin(dt), 1 - 1e-1 * Math.cos(dt / 2) * Math.sin(dt), 0);
+                    mesh.rotateZ(-4e-1 * delta);
+                }
+            }
+
+            if (i % 2 === 0) {
+                groupLeft.add(mesh);
+            } else {
+                groupRight.add(mesh);
+            }
 
         });
 
-        group.tick = delta => group.rotateZ(1e-1 * delta);
-
-        meshes.push(group);
+        meshes.push(groupLeft);
+        meshes.push(groupRight);
 
         return meshes;
 

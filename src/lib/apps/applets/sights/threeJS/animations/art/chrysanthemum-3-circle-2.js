@@ -3,15 +3,11 @@ Draw numPolygons transparent circles at position
     globalRadius * Math.cos(phi(i, numPolygons)),
     globalRadius * Math.sin(phi(i, numPolygons)),
     0
-Each circle, i, should scale and rotate according to the following rule
-    dt += delta;
-    if (i % 2 === 0) {
-        mesh.scale.set(1 + 1e-1 * Math.cos(dt / 2) *  Math.sin(dt), 1 + 1e-1 * Math.cos(dt / 2) *  Math.sin(dt), 0);
-        mesh.rotateZ(2e-1 * delta * Math.sin(2 * dt));
-    } else {
-        mesh.scale.set(1 - 1e-1 * Math.cos(dt / 2) * Math.sin(dt), 1 - 1e-1 * Math.cos(dt / 2) * Math.sin(dt), 0);
-        mesh.rotateZ(-4e-1 * delta);
-    }
+Each circle, i,  should rotate according to the following rule
+    mesh.rotation.z += i % 2 === 0 ? delta / 2 : -delta / 2;
+
+Create two groups and add circles with even i to the first group and odd i to the second group
+Rotate one group clockwise and the other counterclockwise
 */
 
 import {
@@ -27,26 +23,26 @@ export default {
 
     metadata: {
         active: false,
-        address: '/three#art_chrysanthemum3_circle4',
+        address: '/three#art_chrysanthemum3_circle2',
         category: 'art',
         controllable: true,
         dynamic: true,
         engine: 'threeJS',
         hidden: false,
-        name: 'chrysanthemum3-circle4',
+        name: 'chrysanthemum3-circle2',
         parameters: {
             numNodes: {
                 label: 'Number of Nodes',
                 defaultValue: 12,
                 currentValue: 12,
-                maxValue: 1000,
+                maxValue: 64,
                 minValue: 3
             },
             numPolygons: {
                 label: 'Number of Polygons',
                 defaultValue: 12,
                 currentValue: 12,
-                maxValue: 1000,
+                maxValue: 24,
                 minValue: 0
             },
             polygonRadius: {
@@ -64,7 +60,7 @@ export default {
                 minValue: 1
             },
         },
-        text: 'chrysanthemum 3 circle 4'
+        text: 'chrysanthemum 32'
     },
     
     init() {
@@ -97,17 +93,8 @@ export default {
                 0
             )
 
-            let dt = 0
-
             mesh.tick = delta => {
-                dt += delta;
-                if (i % 2 === 0) {
-                    mesh.scale.set(1 + 1e-1 * Math.cos(dt / 2) *  Math.sin(dt), 1 + 1e-1 * Math.cos(dt / 2) *  Math.sin(dt), 0);
-                    mesh.rotateZ(2e-1 * delta * Math.sin(2 * dt));
-                } else {
-                    mesh.scale.set(1 - 1e-1 * Math.cos(dt / 2) * Math.sin(dt), 1 - 1e-1 * Math.cos(dt / 2) * Math.sin(dt), 0);
-                    mesh.rotateZ(-4e-1 * delta);
-                }
+                mesh.rotation.z += i % 2 === 0 ? delta / 2 : -delta / 2;
             }
 
             if (i % 2 === 0) {
@@ -117,6 +104,9 @@ export default {
             }
 
         });
+
+        groupLeft.tick = delta => groupLeft.rotateZ(1e-1 * delta);
+        groupRight.tick = delta => groupRight.rotateZ(-1e-1 * delta);
 
         meshes.push(groupLeft);
         meshes.push(groupRight);
