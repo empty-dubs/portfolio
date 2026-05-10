@@ -41,40 +41,40 @@ export default {
         parameters: {
             numNodes: {
                 label: 'Number of Nodes',
-                defaultValue: 8,
+                defaultValue: 6,
                 currentValue: 6,
-                maxValue: 1000,
-                minValue: 0
+                maxValue: 12,
+                minValue: 4
             },
-            numPolygons: {
-                label: 'Number of Polygons',
-                defaultValue: 8,
-                currentValue: 12,
-                maxValue: 1000,
-                minValue: 0
-            },
+            // opacity: {
+            //     label: 'Opacity',
+            //     defaultValue: 10,
+            //     currentValue: 10,
+            //     maxValue: 50,
+            //     minValue: 1
+            // },
             polygonRadius: {
                 label: 'Polygon Radius',
                 defaultValue: 2,
                 currentValue: 2,
-                maxValue: 1000,
-                minValue: 0
+                maxValue: 10,
+                minValue: 1
             },
             globalRadius: {
                 label: 'Global Radius',
                 defaultValue: 1,
                 currentValue: 1,
-                maxValue: 1000,
-                minValue: 0
+                maxValue: 5,
+                minValue: 1
             }
         },
-        text: 'chrysanthemum 7 circle 3'
+        text: 'chrysanthemum 7.3'
     },
     
     init() {
 
         const numNodes = this.metadata.parameters.numNodes.currentValue;
-        const numPolygons = this.metadata.parameters.numPolygons.currentValue;
+        const numPolygons = 2 * numNodes;
         const globalRadius = this.metadata.parameters.globalRadius.currentValue;
         const polygonRadius = this.metadata.parameters.polygonRadius.currentValue;
 

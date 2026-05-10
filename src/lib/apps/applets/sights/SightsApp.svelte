@@ -1,7 +1,7 @@
 <script>
     
     import ThreeJSArtApp from "$lib/apps/applets/sights/threeJS/applets/ThreeJSArtApp.svelte";
-    import ThreeJSMathApp from "$lib/apps/applets/sights/threeJS/applets/ThreeJSMathApp.svelte";
+    // import ThreeJSMathApp from "$lib/apps/applets/sights/threeJS/applets/ThreeJSMathApp.svelte";
     // import ThreeJSPhysicsApp from "$lib/apps/applets/sights/threeJS/applets/ThreeJSPhysicsApp.svelte";
     import ThreeJSSimulationsApp from "$lib/apps/applets/sights/threeJS/applets/ThreeJSSimulationsApp.svelte";
     import P5Sketches from "./p5/applets/P5Sketches.svelte";
@@ -12,10 +12,10 @@
     import { setCanvasState } from "./components/CanvasState.svelte";
 
     const tabs = [
-      { label: 'ThreeJS Art', component: ThreeJSArtApp },
-      { label: 'ThreeJS Math', component: ThreeJSMathApp },
+      { label: 'Art', component: ThreeJSArtApp },
+    //   { label: 'Math', component: ThreeJSMathApp },
     //   { label: 'ThreeJS Physics', component: ThreeJSPhysicsApp },
-      { label: 'ThreeJS Simulations', component: ThreeJSSimulationsApp },
+      { label: 'Simulations', component: ThreeJSSimulationsApp },
       { label: 'P5 Sketches', component: P5Sketches },
     ];
 

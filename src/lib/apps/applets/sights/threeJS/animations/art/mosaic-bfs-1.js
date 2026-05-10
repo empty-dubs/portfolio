@@ -66,7 +66,7 @@ export default {
                 minValue: 0
             }
         },
-        text: 'mosaic bfs'
+        text: 'recursive mosaic'
     },
     
     init() {

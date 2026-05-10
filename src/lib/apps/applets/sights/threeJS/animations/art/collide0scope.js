@@ -43,7 +43,7 @@ export default {
                 minValue: 1
             }
         },
-        text: 'collide0scope'
+        text: 'collide'
     },
     
     init() {

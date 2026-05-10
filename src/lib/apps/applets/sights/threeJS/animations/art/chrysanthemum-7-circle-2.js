@@ -39,47 +39,41 @@ export default {
         controllable: true,
         dynamic: true,
         engine: 'threeJS',
-        hidden: false,
+        hidden: true,
         name: 'chrysanthemum7-circle-2',
         parameters: {
             numNodes: {
                 label: 'Number of Nodes',
                 defaultValue: 8,
                 currentValue: 8,
-                maxValue: 1000,
-                minValue: 0
+                maxValue: 64,
+                minValue: 3
             },
             numPolygons: {
                 label: 'Number of Polygons',
                 defaultValue: 8,
                 currentValue: 8,
-                maxValue: 1000,
-                minValue: 0
+                maxValue: 16,
+                minValue: 1
             },
-            polygonRadius: {
-                label: 'Polygon Radius',
+            opacity: {
+                label: 'Opacity',
                 defaultValue: 2,
                 currentValue: 2,
-                maxValue: 1000,
-                minValue: 0
+                maxValue: 5,
+                minValue: 1
             },
-            globalRadius: {
-                label: 'Global Radius',
-                defaultValue: 1,
-                currentValue: 1,
-                maxValue: 1000,
-                minValue: 0
-            }
         },
-        text: 'chrysanthemum 7 circle 2'
+        text: 'chrysanthemum 7.2'
     },
     
     init() {
 
         const numNodes = this.metadata.parameters.numNodes.currentValue;
         const numPolygons = this.metadata.parameters.numPolygons.currentValue;
-        const globalRadius = this.metadata.parameters.globalRadius.currentValue;
-        const polygonRadius = this.metadata.parameters.polygonRadius.currentValue;
+        const opacity = this.metadata.parameters.opacity.currentValue;
+        const globalRadius = 1;
+        const polygonRadius = 2;
 
         const meshGroups = [];
 
@@ -98,7 +92,7 @@ export default {
                 0
             );
 
-            group1.rotateZ(delta);
+            group1.rotateZ(1e-1 * delta);
         }
 
         group2.tick = delta => {
@@ -108,7 +102,7 @@ export default {
                 5e-1 + (1 + Math.abs( Math.sin(-group2.dt))),
                 0
             );
-            group1.rotateZ(-delta);
+            group2.rotateZ(-1e-1 * delta);
         }
 
         const color = colorNodes(2);
@@ -119,7 +113,7 @@ export default {
 
             const material = new MeshBasicMaterial({
                 color,
-                opacity: 2e-2,
+                opacity: 1e-2 * opacity,
                 transparent: true,
             });
     

@@ -33,15 +33,15 @@ export default {
                 label: 'Number of Nodes',
                 defaultValue: 12,
                 currentValue: 12,
-                maxValue: 1000,
+                maxValue: 64,
                 minValue: 3
             },
             numPolygons: {
                 label: 'Number of Polygons',
                 defaultValue: 12,
                 currentValue: 12,
-                maxValue: 1000,
-                minValue: 0
+                maxValue: 24,
+                minValue: 1
             },
             polygonRadius: {
                 label: 'Polygon Radius',
@@ -58,7 +58,7 @@ export default {
                 minValue: 1
             },
         },
-        text: 'chrysanthemum 33'
+        text: 'chrysanthemum 3.3'
     },
     
     init() {

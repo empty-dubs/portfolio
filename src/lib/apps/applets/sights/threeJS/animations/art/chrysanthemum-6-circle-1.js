@@ -41,32 +41,32 @@ export default {
                 label: 'Number of Nodes',
                 defaultValue: 6,
                 currentValue: 6,
-                maxValue: 1000,
+                maxValue: 64,
                 minValue: 3
             },
             numPolygons: {
                 label: 'Number of Polygons',
                 defaultValue: 6,
                 currentValue: 6,
-                maxValue: 1000,
-                minValue: 0
+                maxValue: 12,
+                minValue: 3
             },
             polygonRadius: {
                 label: 'Polygon Radius',
-                defaultValue: 2,
+                defaultValue: 1,
                 currentValue: 1,
-                maxValue: 1000,
-                minValue: 0
+                maxValue: 1,
+                minValue: 1
             },
             globalRadius: {
                 label: 'Global Radius',
                 defaultValue: 1,
                 currentValue: 1,
-                maxValue: 1000,
-                minValue: 0
+                maxValue: 1,
+                minValue: 1
             }
         },
-        text: 'chrysanthemum 6 circle'
+        text: 'chrysanthemum 6.1'
     },
     
     init() {

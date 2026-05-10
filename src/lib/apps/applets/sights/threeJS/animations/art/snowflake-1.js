@@ -45,13 +45,13 @@ export default {
                 defaultValue: 12,
                 currentValue: 12,
                 maxValue: 64,
-                minValue: 0
+                minValue: 4
             },
             numPolygons: {
                 label: 'Number of Polygons',
                 defaultValue: 12,
                 currentValue: 12,
-                maxValue: 100,
+                maxValue: 36,
                 minValue: 1
             },
             numNodes: {
@@ -65,21 +65,21 @@ export default {
                 label: 'Polygon Radius',
                 defaultValue: 1,
                 currentValue: 1,
-                maxValue: 1000,
+                maxValue: 10,
                 minValue: 0
             },
             globalRadius: {
                 label: 'Global Radius',
                 defaultValue: 2,
                 currentValue: 2,
-                maxValue: 1000,
+                maxValue: 10,
                 minValue: 0
             },
             rate: {
                 label: 'Rate',
                 defaultValue: 1,
                 currentValue: 1,
-                maxValue: 500,
+                maxValue: 10,
                 minValue: 0
             }
         },
