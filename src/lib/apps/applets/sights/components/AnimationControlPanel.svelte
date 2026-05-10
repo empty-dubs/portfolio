@@ -14,9 +14,9 @@
     const toggle = () => expanded = !expanded;
 
     function handleKeyDown(e) {
-      e.preventDefault();
-
       if (e.key === 'Escape') {
+        e.preventDefault();
+
         toggle();
       }
     }
