@@ -30,7 +30,7 @@ export default {
         controllable: true,
         dynamic: true,
         engine: 'threeJS',
-        hidden: false,
+        hidden: true,
         name: 'snowflake',
         parameters: {
             numLayers: {

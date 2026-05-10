@@ -67,7 +67,14 @@ export default {
                 currentValue: 1,
                 maxValue: 50,
                 minValue: 0
-            }
+            },
+            opacity: {
+                label: 'Opacity',
+                defaultValue: 25,
+                currentValue: 25,
+                maxValue: 50,
+                minValue: 1
+            },
         },
         text: 'recursive mosaic 2'
     },
@@ -77,6 +84,7 @@ export default {
         const numLayers = this.metadata.parameters.numLayers.currentValue;
         const numNodes = this.metadata.parameters.numNodes.currentValue;
         const numPolygons = this.metadata.parameters.numPolygons.currentValue;
+        const opacity = this.metadata.parameters.opacity.currentValue;
         const polygonRadius = this.metadata.parameters.polygonRadius.currentValue;
 
         const meshGroups = [];
@@ -97,7 +105,7 @@ export default {
 
             const material = new MeshBasicMaterial({
                 color: colorNodes(1, 'cool'),
-                opacity: 1.0 / numPolygons,
+                opacity: 1e-2 * opacity,
                 transparent: true,
             });
     

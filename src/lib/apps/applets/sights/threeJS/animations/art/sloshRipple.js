@@ -12,7 +12,7 @@ export default {
         controllable: false,
         dynamic: true,
         engine: 'threeJS',
-        hidden: false,
+        hidden: true,
         name: 'slosh ripple',
         parameters: {
             numPolygons: {
