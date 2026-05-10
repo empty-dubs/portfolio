@@ -20,8 +20,9 @@
 </div>
 
 <style>
+
     .tabs.monitor {
-        margin-bottom: 20px;
+        margin-bottom: 5px;
     }
 
     button {

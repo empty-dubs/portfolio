@@ -1,5 +1,9 @@
 <script lang="ts">
 
+    import { getWindowState } from '$lib/components/WindowState.svelte';
+
+    const windowState = getWindowState();
+
    let {footerHeight = $bindable()} = $props<{
     footerHeight: number;
    }>();
@@ -8,14 +12,17 @@
 
 </script>
 
-<footer bind:clientHeight={footerHeight}>
+<footer bind:clientHeight={footerHeight} class={windowState.screenType === 'monitor' ? 'monitor': 'other'}>
     <p class='copyright'>Copyright 2025-{year}</p>
 </footer>
 
 <style>
+
     footer {
         text-align: center;
+    }
 
+    footer.monitor {
         padding: 10px 0px;
     }
     
