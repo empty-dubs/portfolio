@@ -1,3 +1,5 @@
+<!-- currently unused -->
+
 <script lang="ts">
 
     import Icon from 'svelte-awesome';

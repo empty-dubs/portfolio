@@ -113,7 +113,6 @@ export default {
                 radius * Math.cos(phi(i, numCenters)),
                 radius * Math.sin(phi(i, numCenters)),
                 0
-                // -5
             );
         }
 

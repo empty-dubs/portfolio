@@ -1,21 +1,15 @@
 <script lang='ts'>
 
-    // import HomeApp from "$lib/apps/applets/home/HomeApp.svelte";
     import SightsApp from "$lib/apps/applets/sights/SightsApp.svelte";
     import MediaApp from "$lib/apps/applets/sounds/SoundsApp.svelte";
-    // import CVApp from "$lib/apps/applets/cv/CVApp.svelte";
-    // import ContactApp from "$lib/apps/applets/contact/ContactApp.svelte";
     import AboutApp from "$lib/apps/applets/about/AboutApp.svelte";
 
     import Header from "$lib/components/Header.svelte";
     import Footer from "$lib/components/Footer.svelte";
 
     const tabs = [
-    //   { label: 'Home', component: HomeApp },
       { label: 'Sights', component: SightsApp },
       { label: 'Sounds', component: MediaApp },
-    //   { label: 'CV', component: CVApp },
-    //   { label: 'Contact', component: ContactApp },
       { label: 'About', component: AboutApp },
     ];
 

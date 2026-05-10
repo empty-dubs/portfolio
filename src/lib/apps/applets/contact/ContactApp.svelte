@@ -1,3 +1,5 @@
+<!-- currently unused -->
+
 <script>
 
     import Icon from 'svelte-awesome';
