@@ -26,7 +26,7 @@ export default {
 	controllable: false,
 	dynamic: true,
     engine: 'threeJS',
-	hidden: false,
+	hidden: true,
 	name: 'mosaic-2',
 	parameters: {
 		numLayers: {

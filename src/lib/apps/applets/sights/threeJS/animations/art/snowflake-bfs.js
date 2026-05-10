@@ -48,7 +48,7 @@ export default {
                 minValue: 1
             },
             numCenters: {
-                label: 'Nmber of Centers',
+                label: 'Number of Centers',
                 defaultValue: 6,
                 currentValue: 6,
                 maxValue: 12,
@@ -126,7 +126,7 @@ export default {
 
             const material = new MeshBasicMaterial({
                 color: colorNodes(0, 'cool'),
-                opacity: opacity / 100,
+                opacity: 1e-2 * opacity / (numLayers - i),
                 transparent: true,
             });
     
