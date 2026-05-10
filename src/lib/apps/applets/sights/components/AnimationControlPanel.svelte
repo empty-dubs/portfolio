@@ -13,7 +13,17 @@
 
     const toggle = () => expanded = !expanded;
 
+    function handleKeyDown(e) {
+      e.preventDefault();
+
+      if (e.key === 'Escape') {
+        toggle();
+      }
+    }
+
 </script>
+
+<svelte:window onkeydown={handleKeyDown}/>
 
 <div class="panel-wrapper">
     <div class="panel" class:expanded>
