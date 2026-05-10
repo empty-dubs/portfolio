@@ -81,7 +81,7 @@ export default {
                 minValue: 1
             }
         },
-        text: 'chrysanthemum 9 circle'
+        text: 'chrysanthemum 9.1'
     },
     
     init() {

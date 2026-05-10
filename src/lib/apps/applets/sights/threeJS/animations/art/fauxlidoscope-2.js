@@ -90,7 +90,7 @@ export default {
                 minValue: 0
             }
         },
-        text: 'fauxlidoscope circle'
+        text: 'fauxlidoscope 2'
     },
     
     init() {

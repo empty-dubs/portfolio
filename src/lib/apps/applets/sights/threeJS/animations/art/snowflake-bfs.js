@@ -48,11 +48,11 @@ export default {
                 minValue: 1
             },
             numCenters: {
-                label: 'Number of Centers',
+                label: 'Nmber of Centers',
                 defaultValue: 6,
                 currentValue: 6,
                 maxValue: 12,
-                minValue: 0
+                minValue: 4
             },
             numNodes: {
                 label: 'Number of Nodes',
@@ -66,20 +66,20 @@ export default {
                 defaultValue: 2,
                 currentValue: 2,
                 maxValue: 10,
-                minValue: 0
+                minValue: 1
             },
             globalRadius: {
                 label: 'Global Radius',
                 defaultValue: 1,
                 currentValue: 1,
-                maxValue: 100,
-                minValue: 0
+                maxValue: 10,
+                minValue: 1
             },
             rate: {
                 label: 'Rate',
                 defaultValue: 1,
                 currentValue: 1,
-                maxValue: 100,
+                maxValue: 10,
                 minValue: 0
             },
             opacity: {
@@ -90,7 +90,7 @@ export default {
                 minValue: 1
             },
         },
-        text: 'snowflake bfs'
+        text: 'recursive snowflake'
     },
     
     init() {

@@ -43,24 +43,24 @@ export default {
                 defaultValue: 12,
                 currentValue: 12,
                 maxValue: 24,
-                minValue: 0
+                minValue: 1
             },
             polygonRadius: {
                 label: 'Polygon Radius',
                 defaultValue: 2,
                 currentValue: 2,
-                maxValue: 10,
-                minValue: 1
+                maxValue: 2,
+                minValue: 2
             },
             globalRadius: {
                 label: 'Global Radius',
                 defaultValue: 2,
                 currentValue: 2,
-                maxValue: 10,
+                maxValue: 4,
                 minValue: 1
             },
         },
-        text: 'chrysanthemum 32'
+        text: 'chrysanthemum 3.2'
     },
     
     init() {

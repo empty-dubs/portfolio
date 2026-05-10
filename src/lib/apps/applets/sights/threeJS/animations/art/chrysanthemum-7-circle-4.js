@@ -1,12 +1,12 @@
 /*
-Draw numPolygons transparent circles at position
-    globalRadius * Math.cos(phi(i, numPolygons)),
-    globalRadius * Math.sin(phi(i, numPolygons)),
+Draw numPolygons * numPolygons transparent circles at position
+    globalRadius * (Math.cos(phi(i, numPolygons)) + Math.cos(phi(j, numNodes))),
+    globalRadius * (Math.sin(phi(i, numPolygons)) + Math.sin(phi(j, numNodes))),
     0
 
-Each circle, i, is added to a group, polyGroup, and this group is translated to
-    globalRadius * Math.cos(phi(i, numPolygons)),
-    globalRadius * Math.sin(phi(i, numPolygons)),
+Each circle, i, j, is added to a group, polyGroup, and this group is translated to
+    globalRadius * (Math.cos(phi(i, numPolygons)) + Math.cos(phi(j, numNodes))),
+    globalRadius * (Math.sin(phi(i, numPolygons)) + Math.sin(phi(j, numNodes))),
     0
 
 Note: this has the effect of positioning the circles at the points on a polygon offset by the radius
@@ -15,10 +15,6 @@ Rotate each polyGroup according to
     i % 2 === 0 ? polyGroup.rotateZ(delta / 2) : polyGroup.rotateZ(-delta / 2);
 
 Add all polyGroups to a final group, parentGroup
-
-Translate and rotate the parentGroup using
-    parentGroup.position.z -= 3;
-    parentGroup.rotation.z += 90;
 */
 
 import {
@@ -35,50 +31,44 @@ export default {
 
     metadata: {
         active: false,
-        address: '/three#art_chrysanthemum6_circle2',
+        address: '/three#art_chrysanthemum7_circle4',
         category: 'art',
-        controllable: false,
+        controllable: true,
         dynamic: true,
         engine: 'threeJS',
         hidden: false,
-        name: 'chrysanthemum6-circle-2',
+        name: 'chrysanthemum7-circle-4',
         parameters: {
             numNodes: {
                 label: 'Number of Nodes',
                 defaultValue: 6,
                 currentValue: 6,
-                maxValue: 64,
-                minValue: 3
-            },
-            numPolygons: {
-                label: 'Number of Polygons',
-                defaultValue: 6,
-                currentValue: 6,
                 maxValue: 12,
-                minValue: 3
+                minValue: 4
             },
             polygonRadius: {
                 label: 'Polygon Radius',
                 defaultValue: 2,
                 currentValue: 2,
-                maxValue: 3,
-                minValue: 3
+                maxValue: 10,
+                minValue: 1
             },
             globalRadius: {
                 label: 'Global Radius',
                 defaultValue: 1,
                 currentValue: 1,
-                maxValue: 3,
-                minValue: 3
+                maxValue: 5,
+                minValue: 1
             }
         },
-        text: 'chrysanthemum 6.2'
+        text: 'chrysanthemum 7.4'
     },
     
     init() {
 
         const numNodes = this.metadata.parameters.numNodes.currentValue;
-        const numPolygons = this.metadata.parameters.numPolygons.currentValue;
+        const maxNodes = this.metadata.parameters.numNodes.maxValue;
+        const numPolygons = numNodes;
         const globalRadius = this.metadata.parameters.globalRadius.currentValue;
         const polygonRadius = this.metadata.parameters.polygonRadius.currentValue;
 
@@ -88,10 +78,10 @@ export default {
 
         const geometry = new CircleGeometry(polygonRadius, numNodes);
 
-        function getPosition(radius, i) {
+        function getPosition(radius, i, j) {
             return new Vector3(
-                radius * Math.cos(phi(i, numPolygons)),
-                radius * Math.sin(phi(i, numPolygons)),
+                radius * (Math.cos(phi(i, numPolygons)) + Math.cos(phi(j, numNodes))),
+                radius * (Math.sin(phi(i, numPolygons)) + Math.sin(phi(j, numNodes))),
                 0
             );
         }
@@ -99,32 +89,32 @@ export default {
         function getMesh(i) {
 
             const material = new MeshBasicMaterial({
-                color: colorNodes(i),
-                opacity: 2e-1,
+                color: colorNodes(i % 2 + 3),
+                opacity: (maxNodes - numNodes + 1) * 1e-2 * 2,
                 transparent: true,
             });
-
+    
             return new Mesh(geometry, material);
         }
 
-        Array.from({ length: numPolygons}, (_, i) => {
-            const polyGroup = new Group();
+        Array.from({ length: numPolygons }, (_, i) => {
+            Array.from({ length: numPolygons }, (_, j) => {
 
-            const mesh = getMesh(i);
+                const polyGroup = new Group();
+                const mesh = getMesh(i);
 
-            mesh.position.copy(getPosition(globalRadius, i))
+                mesh.position.copy(getPosition(globalRadius, i, j));
 
-            polyGroup.add(mesh);
+                polyGroup.add(mesh);
 
-            polyGroup.position.copy(getPosition(globalRadius, i))
-            
-            polyGroup.tick = delta => i % 2 === 0 ? polyGroup.rotateZ(delta / 2) : polyGroup.rotateZ(-delta / 2);
+                polyGroup.position.copy(getPosition(globalRadius, i, j));
 
-            parentGroup.add(polyGroup);
+                polyGroup.tick = delta => i % 2 === 0 ? polyGroup.rotateZ(1e-1 * delta) : polyGroup.rotateZ(-1e-1 * delta / 2);
+
+                parentGroup.add(polyGroup);
+
+            });
         });
-
-        parentGroup.position.z -= 3;
-        parentGroup.rotation.z += 90;
 
         meshGroups.push(parentGroup);
 
