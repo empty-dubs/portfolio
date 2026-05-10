@@ -2,6 +2,7 @@
 
     import { onMount, onDestroy } from "svelte";
 
+    import { restartAnimation } from '../../components/AnimationControls';
     import { getCanvasState } from "../../components/CanvasState.svelte";
 
     const canvasState = getCanvasState();
@@ -34,7 +35,15 @@
         }
     });
 
+    function handleKeyDown(e) {
+        if (e.key === 'r') {
+            restartAnimation(animation, canvasState.canvas);
+        }
+    }
+
 </script>
+
+<svelte:window onkeydown={handleKeyDown}/>
 
 <main
     bind:this={container}
