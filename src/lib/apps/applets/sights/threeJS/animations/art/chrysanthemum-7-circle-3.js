@@ -46,13 +46,6 @@ export default {
                 maxValue: 12,
                 minValue: 4
             },
-            // opacity: {
-            //     label: 'Opacity',
-            //     defaultValue: 10,
-            //     currentValue: 10,
-            //     maxValue: 50,
-            //     minValue: 1
-            // },
             polygonRadius: {
                 label: 'Polygon Radius',
                 defaultValue: 2,

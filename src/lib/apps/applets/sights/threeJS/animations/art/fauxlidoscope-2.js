@@ -124,7 +124,6 @@ export default {
         function getMesh(i) {
 
             const material = new MeshBasicMaterial({
-                // color: colorNodes(i),
                 color,
                 opacity: 4e-2,
                 transparent: true,

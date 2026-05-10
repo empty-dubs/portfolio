@@ -1,3 +1,5 @@
+<!-- currently unused -->
+
 <script lang="ts">
 
     import attributes from '$lib/apps/data/home-app-attributes.json';
