@@ -3,18 +3,23 @@ import { innerWidth, innerHeight } from "svelte/reactivity/window";
 import { getContext, setContext } from "svelte";
 
 interface WindowState {
+    height: typeof innerHeight;
+    width: typeof innerWidth;
     screenType: string;
     aspectRatioType: string;
 }
 
 class WindowStateManager implements WindowState {
 
+    height = $state(innerHeight);
+    width = $state(innerWidth);
+
     screenType = $derived.by(() => {
         let screenType: string = 'monitor';
 
-        if (innerWidth.current < 576) {
+        if (this.width.current < 768) {
             screenType = 'phone';
-        } else if (innerWidth.current < 768) {
+        } else if (this.width.current <= 1024) {
             screenType = 'tablet';
         }
 
@@ -22,7 +27,7 @@ class WindowStateManager implements WindowState {
     });
 
     aspectRatioType = $derived.by(() => {
-        return innerWidth.current / innerHeight.current > 2 ? 'widescreen': 'normal';
+        return this.width.current / this.height.current > 2 ? 'widescreen': 'normal';
     });
 
 }

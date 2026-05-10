@@ -1,4 +1,9 @@
 <script>
+
+    import { getWindowState } from './WindowState.svelte';
+
+    const windowState = getWindowState();
+
     let {tabs, currentTab = $bindable()} = $props();
 
     const tabChange = tab => {
@@ -6,7 +11,7 @@
     };
 </script>
 
-<div class="tabs flex">
+<div class="tabs flex {windowState.screenType === 'monitor' ? 'monitor' : 'other'}">
     {#each tabs as tab (tab.label)}
         <button class:active={tab.label === currentTab.label} onclick={() => tabChange(tab)}>
             {tab.label}
@@ -15,8 +20,9 @@
 </div>
 
 <style>
-    .tabs {
-        margin-bottom: 20px;
+
+    .tabs.monitor {
+        margin-bottom: 5px;
     }
 
     button {

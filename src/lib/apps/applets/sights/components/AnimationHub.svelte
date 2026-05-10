@@ -7,6 +7,10 @@
     import P5Canvas from "../p5/components/Canvas.svelte";
     import ThreeJSCanvas from "../threeJS/components/Canvas.svelte";
 
+    import { getWindowState } from '$lib/components/WindowState.svelte';
+
+    const windowState = getWindowState();
+
     let { modules } = $props();
 
     let animations: object[] | undefined = $state();
@@ -25,7 +29,9 @@
         <NavBar {animations} bind:currentAnimation={CurrentAnimation}/>
     </div>
     <div class="right-pane flex flex-1 flex-col">
-        <AnimationControlPanel animation={CurrentAnimation}></AnimationControlPanel>
+        {#if windowState.height.current > windowState.width.current / 2 || windowState.screenType === 'monitor'}
+            <AnimationControlPanel animation={CurrentAnimation}></AnimationControlPanel>
+        {/if}
         {#if CurrentAnimation?.metadata?.engine === 'p5'}
             <P5Canvas animation={CurrentAnimation}></P5Canvas>
             {:else if CurrentAnimation?.metadata?.engine === 'threeJS'}
