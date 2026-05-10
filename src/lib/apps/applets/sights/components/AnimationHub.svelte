@@ -29,7 +29,7 @@
         <NavBar {animations} bind:currentAnimation={CurrentAnimation}/>
     </div>
     <div class="right-pane flex flex-1 flex-col">
-        {#if windowState.height.current > windowState.width.current / 2}
+        {#if windowState.height.current > windowState.width.current / 2 || windowState.screenType === 'monitor'}
             <AnimationControlPanel animation={CurrentAnimation}></AnimationControlPanel>
         {/if}
         {#if CurrentAnimation?.metadata?.engine === 'p5'}
