@@ -6,6 +6,8 @@
     import refresh from 'svelte-awesome/icons/refresh';
     import repeat from 'svelte-awesome/icons/repeat';
 
+    import { resetAnimation, restartAnimation, toFullScreen } from './AnimationControls';
+
     import { getCanvasState } from "./CanvasState.svelte";
 
     const canvasState = getCanvasState();
@@ -31,30 +33,6 @@
 
         return currentValue;
     }
-
-    function resetAnimation (animation: object): void {
-        for (const parameter of parameters) parameter.currentValue = parameter.defaultValue;
-
-        canvasState.canvas.draw(animation);
-    };
-
-    function restartAnimation(animation: object) {
-        canvasState.canvas.draw(animation)
-    };
-
-    function toFullScreen(): void {
-        const canvas = canvasState.canvas.canvas;
-
-        if (canvas.requestFullscreen) {
-            canvas.requestFullscreen();
-        } else if (canvas.webkitRequestFullscreen) {
-            canvas.webkitRequestFullscreen();
-        } else if (canvas.mozRequestFullScreen) {
-            canvas.mozRequestFullScreen();
-        } else if (canvas.msRequestFullscreen) {
-            canvas.msRequestFullscreen();
-        }
-    };
 
 </script>
 
@@ -91,13 +69,13 @@
         {/each}
     </div>
     <div class="flex w-full">
-        <button class="flex-1" onclick={() => restartAnimation(animation)}>
+        <button class="flex-1" onclick={() => restartAnimation(animation, canvasState.canvas)}>
             <Icon data={repeat} label="Restart" name="Restart"/>
         </button>
-        <button class="flex-1" onclick={() => resetAnimation(animation)}>
+        <button class="flex-1" onclick={() => resetAnimation(animation, canvasState.canvas, parameters)}>
             <Icon data={refresh} label="Refresh" name="Refresh"/>
         </button>
-        <button class="flex-1" onclick={() => toFullScreen()}>
+        <button class="flex-1" onclick={() => toFullScreen(canvasState.canvas.canvas)}>
             <Icon data={arrowsAlt} label="Full Screen" name="Full Screen"/>
         </button>
     </div>

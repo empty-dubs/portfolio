@@ -2,6 +2,7 @@
 
     import { onMount } from "svelte";
 
+    import { restartAnimation, toFullScreen } from '../../components/AnimationControls';
     import { getCanvasState } from "../../components/CanvasState.svelte";
 
     const canvasState = getCanvasState();
@@ -29,6 +30,16 @@
         if (animation) canvasState.canvas?.draw(animation);
     });
 
+    function handleKeyDown(e) {
+        if (e.key === 'r') {
+            restartAnimation(animation, canvasState.canvas);
+        } else if (e.key === 'f') {
+            toFullScreen(canvasState.canvas.canvas);
+        }
+    }
+
 </script>
+
+<svelte:window onkeydown={handleKeyDown}/>
 
 <canvas bind:this={canvas} class='w-full h-full'></canvas>
