@@ -1,0 +1,1 @@
+import{t as e}from"../chunks/BOZCOkvC.js";export{e as component};
