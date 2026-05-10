@@ -12,9 +12,9 @@ class WindowStateManager implements WindowState {
     screenType = $derived.by(() => {
         let screenType: string = 'monitor';
 
-        if (innerWidth.current < 576) {
+        if (innerWidth.current < 768) {
             screenType = 'phone';
-        } else if (innerWidth.current < 768) {
+        } else if (innerWidth.current <= 1024) {
             screenType = 'tablet';
         }
 
