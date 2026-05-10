@@ -1,16 +1,16 @@
 <script lang='ts'>
 
+    import AboutApp from "$lib/apps/applets/about/AboutApp.svelte";
     import SightsApp from "$lib/apps/applets/sights/SightsApp.svelte";
     import MediaApp from "$lib/apps/applets/sounds/SoundsApp.svelte";
-    import AboutApp from "$lib/apps/applets/about/AboutApp.svelte";
 
     import Header from "$lib/components/Header.svelte";
     import Footer from "$lib/components/Footer.svelte";
 
     const tabs = [
-      { label: 'Sights', component: SightsApp },
-      { label: 'Sounds', component: MediaApp },
-      { label: 'About', component: AboutApp },
+        { label: 'About', component: AboutApp },
+        { label: 'Sights', component: SightsApp },
+        { label: 'Sounds', component: MediaApp },
     ];
 
     let CurrentTab = $state(tabs[0]);
