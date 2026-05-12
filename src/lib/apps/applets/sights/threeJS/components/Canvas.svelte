@@ -27,7 +27,11 @@
 
     $effect(() => {
         // redraw canvas when the animation changes
-        if (animation) canvasState.canvas?.draw(animation);
+        if (animation) {
+            canvasState.record(animation, canvas, 60, 10000);
+
+            canvasState.canvas?.draw(animation);
+        };
     });
 
     function handleKeyDown(e) {
