@@ -50,10 +50,12 @@ class CanvasStateManager {
         URL.revokeObjectURL(url);
     }
 
-    record(animation, stream) {
-        this.chunks = [];
-    
+    record(animation, canvas, fps=60, duration=1000) {
+
         const recordOptions = { mimeType: "video/webm; codecs=vp9" };
+        const stream = canvas.captureStream(fps);
+
+        this.chunks = [];
 
         this.recorder = new MediaRecorder(stream, recordOptions);
 
@@ -71,7 +73,7 @@ class CanvasStateManager {
 
         setTimeout(event => {
             this.recorder?.stop();
-        }, 10000);
+        }, duration);
     }
 
 }

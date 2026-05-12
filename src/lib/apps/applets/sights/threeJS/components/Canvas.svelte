@@ -28,9 +28,7 @@
     $effect(() => {
         // redraw canvas when the animation changes
         if (animation) {
-            const stream = canvas.captureStream(120);
-
-            canvasState.record(animation, stream);
+            canvasState.record(animation, canvas, 60, 10000);
 
             canvasState.canvas?.draw(animation);
         };
