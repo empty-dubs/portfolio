@@ -27,7 +27,13 @@
 
     $effect(() => {
         // redraw canvas when the animation changes
-        if (animation) canvasState.canvas?.draw(animation);
+        if (animation) {
+            const stream = canvas.captureStream(120);
+
+            canvasState.record(animation, stream);
+
+            canvasState.canvas?.draw(animation);
+        };
     });
 
     function handleKeyDown(e) {
