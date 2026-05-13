@@ -7,6 +7,7 @@ class CanvasStateManager {
     canvas = $state();
     recorder: MediaRecorder | null = null;
     chunks = [];
+    recorderEnabled = false;
 
     constructor() {
         onDestroy(() => {
@@ -50,9 +51,10 @@ class CanvasStateManager {
         URL.revokeObjectURL(url);
     }
 
-    record(animation, canvas, fps=60, duration=1000) {
+    record(animation, canvas, fps=60, duration_seconds=1000, bitrate_mb=25) {
 
-        const recordOptions = { mimeType: "video/webm; codecs=vp9" };
+        const recordOptions = { mimeType: "video/webm; codecs=vp9", videoBitsPerSecond: bitrate_mb * 1e6};
+
         const stream = canvas.captureStream(fps);
 
         this.chunks = [];
@@ -73,7 +75,7 @@ class CanvasStateManager {
 
         setTimeout(event => {
             this.recorder?.stop();
-        }, duration);
+        }, duration_seconds * 1e3);
     }
 
 }
