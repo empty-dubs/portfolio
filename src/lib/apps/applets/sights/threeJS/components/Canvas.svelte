@@ -28,7 +28,7 @@
     $effect(() => {
         // redraw canvas when the animation changes
         if (animation) {
-            canvasState.record(animation, canvas, 60, 10000);
+            if (canvasState.recorderEnabled) canvasState.record(animation, canvas, 60, 10, 40);
 
             canvasState.canvas?.draw(animation);
         };
