@@ -35,6 +35,7 @@ export default {
         address: '/three#math_mosaic_bfs2',
         category: 'math',
         controllable: true,
+        zoomOnly: true,
         dynamic: true,
         engine: 'threeJS',
         hidden: false,
