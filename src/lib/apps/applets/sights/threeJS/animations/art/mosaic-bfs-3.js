@@ -40,6 +40,7 @@ export default {
         address: '/three#math_mosaic_bfs3',
         category: 'math',
         controllable: true,
+        zoomOnly: true,
         dynamic: true,
         engine: 'threeJS',
         hidden: false,

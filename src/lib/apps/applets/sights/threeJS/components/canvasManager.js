@@ -85,6 +85,11 @@ export default class CanvasManager {
         // add controls if animation is controllable
         if(animation.metadata.controllable) {
             this.controls = new OrbitControls(this.camera, this.renderer.domElement);
+
+            if (animation.metadata.zoomOnly) {
+                this.controls.enableRotate = false;
+                this.controls.enablePan = false;
+            }
         }
 
         // create mesh objects and add to scene

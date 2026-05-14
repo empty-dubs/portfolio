@@ -26,6 +26,7 @@ export default {
         address: '/three#art_chrysanthemum3_circle',
         category: 'art',
         controllable: true,
+        zoomOnly: true,
         dynamic: true,
         engine: 'threeJS',
         hidden: false,
@@ -45,19 +46,12 @@ export default {
                 maxValue: 24,
                 minValue: 1
             },
-            polygonRadius: {
-                label: 'Polygon Radius',
-                defaultValue: 2,
-                currentValue: 2,
-                maxValue: 2,
-                minValue: 2
-            },
             globalRadius: {
                 label: 'Global Radius',
                 defaultValue: 2,
                 currentValue: 2,
                 maxValue: 4,
-                minValue: 1
+                minValue: 2
             },
         },
         text: 'chrysanthemum 3.1'
@@ -67,8 +61,8 @@ export default {
 
         const numNodes = this.metadata.parameters.numNodes.currentValue;
         const numPolygons = this.metadata.parameters.numPolygons.currentValue;
-        const polygonRadius = this.metadata.parameters.polygonRadius.currentValue;
         const globalRadius = this.metadata.parameters.globalRadius.currentValue;
+        const polygonRadius = 2;
 
         const group = new Group();
 

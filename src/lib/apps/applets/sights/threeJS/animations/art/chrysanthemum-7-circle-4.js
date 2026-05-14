@@ -34,6 +34,7 @@ export default {
         address: '/three#art_chrysanthemum7_circle4',
         category: 'art',
         controllable: true,
+        zoomOnly: true,
         dynamic: true,
         engine: 'threeJS',
         hidden: false,

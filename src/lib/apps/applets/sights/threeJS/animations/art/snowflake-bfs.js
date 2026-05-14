@@ -35,6 +35,7 @@ export default {
         address: '/three#art_snowflake_bfs',
         category: 'art',
         controllable: true,
+        zoomOnly: true,
         dynamic: true,
         engine: 'threeJS',
         hidden: false,

@@ -50,20 +50,6 @@ export default {
                 currentValue: 6,
                 maxValue: 12,
                 minValue: 3
-            },
-            polygonRadius: {
-                label: 'Polygon Radius',
-                defaultValue: 1,
-                currentValue: 1,
-                maxValue: 1,
-                minValue: 1
-            },
-            globalRadius: {
-                label: 'Global Radius',
-                defaultValue: 1,
-                currentValue: 1,
-                maxValue: 1,
-                minValue: 1
             }
         },
         text: 'chrysanthemum 6.1'
@@ -73,8 +59,8 @@ export default {
 
         const numNodes = this.metadata.parameters.numNodes.currentValue;
         const numPolygons = this.metadata.parameters.numPolygons.currentValue;
-        const globalRadius = this.metadata.parameters.globalRadius.currentValue;
-        const polygonRadius = this.metadata.parameters.polygonRadius.currentValue;
+        const globalRadius = 1;
+        const polygonRadius = 1;
 
         const meshGroups = [];
 
