@@ -7,7 +7,6 @@ class CanvasStateManager {
     canvas = $state();
     recorder: MediaRecorder | null = null;
     chunks = [];
-    recorderEnabled = false;
 
     constructor() {
         onDestroy(() => {
@@ -29,8 +28,8 @@ class CanvasStateManager {
         }
     }
 
-    download(animation) {
-        const blobOptions = { type: "video/webm" };
+    download(animation, mediaType) {
+        const blobOptions = { type: `video/${mediaType}` };
 
         const blob = new Blob(this.chunks, blobOptions);
 
@@ -40,7 +39,7 @@ class CanvasStateManager {
 
         a.style = "display: none";
         a.href = url;
-        a.download = `${animation.metadata.name}.webm`;
+        a.download = `${animation.metadata.name}.${mediaType}`;
 
         document.body.appendChild(a);
 
@@ -51,11 +50,13 @@ class CanvasStateManager {
         URL.revokeObjectURL(url);
     }
 
-    record(animation, canvas, fps=60, duration_seconds=1000, bitrate_mb=25) {
+    record(animation, canvas, fps=60, duration_seconds=1, bitrate_mb=25, mediaType='mp4') {
 
-        const recordOptions = { mimeType: "video/webm; codecs=vp9", videoBitsPerSecond: bitrate_mb * 1e6};
+        const mimeType = mediaType === 'mp4' ? 'video/mp4; codecs="avc1.424028"': "video/webm; codecs=vp9";
 
-        const stream = canvas.captureStream(fps);
+        const recordOptions = { mimeType: mimeType, videoBitsPerSecond: bitrate_mb * 1e6};
+
+        const stream = canvas.captureStream();
 
         this.chunks = [];
 
@@ -68,7 +69,7 @@ class CanvasStateManager {
         }
 
         this.recorder.addEventListener('stop', event => {
-            this.download(animation);
+            this.download(animation, mediaType);
         })
 
         this.recorder.start();
