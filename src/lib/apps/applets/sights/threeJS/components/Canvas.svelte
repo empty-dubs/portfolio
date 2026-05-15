@@ -27,11 +27,7 @@
 
     $effect(() => {
         // redraw canvas when the animation changes
-        if (animation) {
-            if (canvasState.recorderEnabled) canvasState.record(animation, canvas, 60, 65, 40);
-
-            canvasState.canvas?.draw(animation);
-        };
+        if (animation) canvasState.canvas?.draw(animation);
     });
 
     function handleKeyDown(e) {
@@ -40,6 +36,14 @@
         } else if (e.key === 'f') {
             toFullScreen(canvasState.canvas.canvas);
         }
+
+        // if (e.key === 'a') {
+        //     canvasState.canvas?.renderer?.setAnimationLoop(null);
+
+        //     canvasState.record(animation, canvas, 30, 10, 25, 'mp4');
+
+        //     canvasState.canvas?.draw(animation);
+        // }
     }
 
 </script>
