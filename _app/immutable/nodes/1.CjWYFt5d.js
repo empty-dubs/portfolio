@@ -1,0 +1,1 @@
+import{t as e}from"../chunks/DAG2IGvB.js";export{e as component};
